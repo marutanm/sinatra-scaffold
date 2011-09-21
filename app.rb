@@ -5,8 +5,9 @@ helpers do
   alias_method :h, :escape_html
 end
 
-get '/styles.css' do
-  scss :styles
+get '/:name.css' do
+  # content_type 'text/css', :charset => 'utf-8'
+  scss :"#{params[:name]}"
 end
 
 get '/script.js' do
